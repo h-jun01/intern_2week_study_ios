@@ -31,8 +31,10 @@ extension Question2ViewController: UITableViewDataSource {
     
     // セルをカスタマイズ
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Question2Cell") as? Question2Cell, let url = URL(string: images[indexPath.row]) else {
-            return UITableViewCell()
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: "Question2Cell") as? Question2Cell,
+            let url = URL(string: images[indexPath.row]) else {
+                return UITableViewCell()
         }
         cell.displayCell(text: areaTexts[indexPath.row], url: url)
         return cell
