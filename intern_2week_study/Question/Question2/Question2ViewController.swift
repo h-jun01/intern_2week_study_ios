@@ -36,7 +36,7 @@ extension Question2ViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         let url = URL(string: images[indexPath.row])!
-        cell.cellDisplay(text: areaTexts[indexPath.row], url: url)
+        cell.displayCell(text: areaTexts[indexPath.row], url: url)
         return cell
     }
 }
@@ -44,8 +44,7 @@ extension Question2ViewController: UITableViewDataSource {
 extension Question2ViewController: UITableViewDelegate {
     // セルを押したときにアラートを表示
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var alertController = UIAlertController()
-        alertController = UIAlertController(title: areaTexts[indexPath.row], message: "メッセージ", preferredStyle: .alert)
+        let alertController = UIAlertController(title: areaTexts[indexPath.row], message: "メッセージ", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alertController, animated: true)
     }
