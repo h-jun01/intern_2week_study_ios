@@ -36,8 +36,7 @@ extension Question2ViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         let url = URL(string: images[indexPath.row])!
-        cell.cellDisplay(label: areaTexts[indexPath.row], url: url)
-        
+        cell.cellDisplay(text: areaTexts[indexPath.row], url: url)
         return cell
     }
 }
