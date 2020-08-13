@@ -19,10 +19,8 @@ final class Question2ViewController: UIViewController {
     // 画面が読み込まれたときに行う処理
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.frame = view.bounds
         tableView.dataSource = self
         tableView.register(UINib(nibName: "Question2Cell", bundle: nil), forCellReuseIdentifier: "Question2Cell")
-        view.addSubview(tableView)
     }
 }
 
@@ -34,13 +32,13 @@ extension Question2ViewController: UITableViewDataSource {
     
     // セルをカスタマイズ
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "Question2Cell") as? Question2Cell {
-            let url = URL(string: images[indexPath.row])!
-            cell.cellDisplay(label: areaTexts[indexPath.row], url: url)
-            
-            return cell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Question2Cell") as? Question2Cell else {
+            return UITableViewCell()
         }
-        return UITableViewCell()
+        let url = URL(string: images[indexPath.row])!
+        cell.cellDisplay(label: areaTexts[indexPath.row], url: url)
+        
+        return cell
     }
 }
 
