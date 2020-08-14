@@ -15,13 +15,44 @@
                     <view key="view" contentMode="scaleToFill" id="xlp-gX-m4Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="キーワードを入力して検索" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OY5-i2-v0m" userLabel="Text Field">
+                                <rect key="frame" x="107" y="332" width="200" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Y27-d3-4XX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOu-po-i9n" userLabel="Search Button">
+                                <rect key="frame" x="107" y="406" width="200" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="hDY-4S-n4X"/>
+                                    <constraint firstAttribute="height" constant="84" id="wCJ-We-rFk"/>
+                                </constraints>
+                                <state key="normal" title="検索"/>
+                                <connections>
+                                    <action selector="searchButtonTapped:" destination="hE7-Bk-rHS" eventType="touchUpInside" id="JDb-8m-5Rw"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dOu-po-i9n" firstAttribute="top" secondItem="OY5-i2-v0m" secondAttribute="bottom" constant="40" id="23A-5Y-uC7"/>
+                            <constraint firstItem="OY5-i2-v0m" firstAttribute="centerX" secondItem="xlp-gX-m4Q" secondAttribute="centerX" id="Qxz-2g-yko"/>
+                            <constraint firstItem="dOu-po-i9n" firstAttribute="centerX" secondItem="xlp-gX-m4Q" secondAttribute="centerX" id="Rgj-jl-JGj"/>
+                            <constraint firstItem="dOu-po-i9n" firstAttribute="centerY" secondItem="xlp-gX-m4Q" secondAttribute="centerY" id="fbr-ps-Cr1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="EnP-FA-CAh"/>
                     </view>
+                    <connections>
+                        <outlet property="searchButton" destination="dOu-po-i9n" id="RT2-AS-zoN"/>
+                        <outlet property="textField" destination="OY5-i2-v0m" id="LGh-VF-ulj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfg-6f-mrj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="121"/>
+            <point key="canvasLocation" x="137.68115942028987" y="120.53571428571428"/>
         </scene>
     </scenes>
 </document>
