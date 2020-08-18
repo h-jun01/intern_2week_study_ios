@@ -19,7 +19,7 @@ final class Question2ViewController: UIViewController {
     // 画面が読み込まれたときに行う処理
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.register(UINib(nibName: "Question2Cell", bundle: nil), forCellReuseIdentifier: "Question2Cell")
+        tableView.register(R.nib.question2Cell)
     }
 }
 
@@ -31,12 +31,9 @@ extension Question2ViewController: UITableViewDataSource {
     
     // セルをカスタマイズ
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Question2Cell") as? Question2Cell,
-            let url = URL(string: images[indexPath.row]) else {
-                return UITableViewCell()
-        }
-        cell.displayCell(text: areaTexts[indexPath.row], url: url)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Question2Cell") as? Question2Cell, let url = URL(string: images[indexPath.row]), let areaText = areaTexts[safe: indexPath.row]
+            else { return UITableViewCell() }
+        cell.setArea(areaText, withImageURL: url)
         return cell
     }
 }
@@ -45,7 +42,7 @@ extension Question2ViewController: UITableViewDelegate {
     // セルを押したときにアラートを表示
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let alertController = UIAlertController(title: areaTexts[indexPath.row], message: "メッセージ", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
         present(alertController, animated: true)
     }
 }
