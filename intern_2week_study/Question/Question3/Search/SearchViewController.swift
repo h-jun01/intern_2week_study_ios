@@ -25,11 +25,9 @@ final class SearchViewController: UIViewController {
                 switch result {
                 case .success(let articles):
                     self?.articleListScreen(articles)
-                    
                 case .failure(let error):
                     let alert = UIAlertController.createErrorAlert(error)
                     self?.present(alert, animated: true)
-                    
                 }
                 self?.searchButton.isEnabled = true
             }
@@ -37,7 +35,7 @@ final class SearchViewController: UIViewController {
     }
     
     private func articleListScreen(_ articles: [Article]) {
-        let sampleArticleListViewController = SampleArticleListViewController.makeInstance(articles)
-        navigationController?.pushViewController(sampleArticleListViewController, animated: true)
+        let articleListViewController = ArticleListViewController.makeViewController(articles)
+        navigationController?.pushViewController(articleListViewController, animated: true)
     }
 }
