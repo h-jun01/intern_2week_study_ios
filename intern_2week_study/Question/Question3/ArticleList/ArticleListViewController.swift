@@ -3,10 +3,10 @@ import UIKit
 
 final class ArticleListViewController: UIViewController {
     
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private var tableView: UITableView!
     
     private var articles: [Article] = []
-    private let height: CGFloat = 70.0
+    private let cellHeight: CGFloat = 70.0
       
     static func makeViewController(_ articles: [Article]) -> ArticleListViewController {
         guard let articleListViewController = R.storyboard.articleList.instantiateInitialViewController() else { return ArticleListViewController() }
@@ -34,7 +34,7 @@ extension ArticleListViewController: UITableViewDataSource {
 
 extension ArticleListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return height
+        return cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

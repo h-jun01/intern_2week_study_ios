@@ -24,7 +24,7 @@ final class SearchViewController: UIViewController {
             DispatchQueue.main.sync {
                 switch result {
                 case .success(let articles):
-                    self?.articleListScreen(articles)
+                    self?.showArticleList(articles)
                 case .failure(let error):
                     let alert = UIAlertController.createErrorAlert(error)
                     self?.present(alert, animated: true)
@@ -34,7 +34,7 @@ final class SearchViewController: UIViewController {
         }
     }
     
-    private func articleListScreen(_ articles: [Article]) {
+    private func showArticleList(_ articles: [Article]) {
         let articleListViewController = ArticleListViewController.makeViewController(articles)
         navigationController?.pushViewController(articleListViewController, animated: true)
     }
